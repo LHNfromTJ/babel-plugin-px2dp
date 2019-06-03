@@ -1,0 +1,16 @@
+{
+	"name": "babel-plugin-px2dp",
+	"version": "1.0.1",
+	"description": "convenient to handle rn style",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "lihaonan",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.5"
+	},
+	"dependencies": {}
+}
