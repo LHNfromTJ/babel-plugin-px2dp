@@ -1,10 +1,14 @@
 {
 	"name": "babel-plugin-px2dp",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "convenient to handle rn style",
 	"main": "src/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:LHNfromTJ/babel-plugin-px2dp.git"
 	},
 	"author": "lihaonan",
 	"license": "ISC",
