@@ -3,7 +3,7 @@
  * @Author: lihaonan
  * @LastEditors: lihaonan
  * @Date: 2019-05-30 16:17:21
- * @LastEditTime: 2019-05-31 16:33:57
+ * @LastEditTime: 2019-06-05 15:46:41
  */
 
 var localDimensions = '', // 本地Dimensions的引用名称
@@ -51,7 +51,7 @@ function plugin({ types, template }) {
 					}
 				}
 			},
-			Property: function(path) {
+			Property: function(path, option) {
 				if (!isNeedPx2dp) return;
 				var node = path.node;
 				// 30px或30.5px这种的都可以被检测到
@@ -60,7 +60,7 @@ function plugin({ types, template }) {
 					var ast = types.objectProperty(
 						types.identifier(node.key.name),
 						template.expression(
-							localDimensions + ".get('window').width * " + propertyVal + ' / 750'
+							localDimensions + ".get('window').width * " + propertyVal + ' / ' + option.opts.uiWidth
 						)()
 					);
 					path.replaceWith(ast);
