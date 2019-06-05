@@ -3,7 +3,7 @@
  * @Author: lihaonan
  * @LastEditors: lihaonan
  * @Date: 2019-05-30 16:17:21
- * @LastEditTime: 2019-06-05 15:46:41
+ * @LastEditTime: 2019-06-05 17:39:22
  */
 
 var localDimensions = '', // 本地Dimensions的引用名称
@@ -54,8 +54,8 @@ function plugin({ types, template }) {
 			Property: function(path, option) {
 				if (!isNeedPx2dp) return;
 				var node = path.node;
-				// 30px或30.5px这种的都可以被检测到
-				if (/^\d+px$/.test(node.value.value) || /^\d+(\.\d+)px$/.test(node.value.value)) {
+				// 30px或30.5px或-30.5px这种的都可以被检测到
+				if (/^(-|)\d+((\.\d+)|)px$/.test(node.value.value)) {
 					var propertyVal = node.value.value.split('px')[0];
 					var ast = types.objectProperty(
 						types.identifier(node.key.name),

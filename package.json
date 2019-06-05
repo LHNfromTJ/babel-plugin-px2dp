@@ -1,6 +1,6 @@
 {
 	"name": "babel-plugin-px2dp",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "convenient to handle rn style",
 	"main": "src/index.js",
 	"scripts": {
