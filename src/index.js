@@ -19,7 +19,23 @@ function plugin({ types, template }) {
 					if (item.value.value === 'px2dp') {
 						isNeedPx2dp = true;
 					}
-                }
+				}
+				// 如果没引入react-native则添加一个引用
+				let importList = path.node.body || []
+				let importLength = importList.filter((item) => {
+					return item.type === 'ImportDeclaration' && item.source.value === 'react-native'
+				}).length
+				if (!importLength) {
+					importList.unshift(
+						types.importDeclaration(
+							[types.importSpecifier(
+								types.identifier('Dimensions'),
+								types.identifier('Dimensions')
+							)],
+							types.stringLiteral('react-native')
+						)
+					)
+				}
 			},
 			ImportDeclaration: function(path) {
 				if (!isNeedPx2dp) return;
